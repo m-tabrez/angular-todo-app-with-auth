@@ -1,0 +1,58 @@
+<div class="welcome-wrapper">
+    <div class="welcome-left">
+        <app-loading *ngIf="isLoading"></app-loading>
+        <h1>Xor Notes</h1>
+        <h3>Welcome, The ultimate place to store your notes, conduct surveys and plan your Todos</h3>
+        <form class="expanded-form-width" (ngSubmit)="onSubmitHandler()" #templateDrivenLoginForm="ngForm">
+            <p>
+            <mat-form-field class="expanded-input-width" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input 
+                    matInput 
+                    placeholder="Enter Email"
+                    ngModel
+                    name="email"
+                    email
+                    required
+                    #email="ngModel"
+                >
+                <mat-error *ngIf="!email.valid && email.touched">Enter a valid email id</mat-error>
+            </mat-form-field>
+             </p>
+             <p>
+            <mat-form-field class="expanded-input-width" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input 
+                    matInput 
+                    type="password"
+                    placeholder="Enter Password"
+                    ngModel
+                    name="password"
+                    required
+                    password
+                    #password="ngModel"
+                >
+                <mat-error *ngIf="!password.valid && password.touched">Enter a valid Password</mat-error>
+            </mat-form-field>
+            </p>
+            <button 
+                mat-raised-button 
+                color="primary"
+                [disabled]="!templateDrivenLoginForm.valid"
+                >
+                Login
+            </button>
+            &nbsp;
+            <button 
+                routerLink="/signup"
+                mat-raised-button 
+                color="primary"
+                >
+                Click Here To Sign Up
+            </button>
+        </form>
+    </div>
+    <div class="welcome-right">
+       
+    </div>
+</div>

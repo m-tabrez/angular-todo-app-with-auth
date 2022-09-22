@@ -1,0 +1,7 @@
+mat-toolbar-row{
+    display: flex;
+    justify-content: space-between;
+}
+.xorTheme{
+    background-color: #17af87 !important;
+}

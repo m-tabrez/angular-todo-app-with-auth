@@ -1,0 +1,7 @@
+.formTitle{
+    display: flex;
+    justify-content: center;
+}
+.formTitle .extended-width{
+    width: 250px;
+}

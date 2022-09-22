@@ -1,0 +1,33 @@
+.welcome-wrapper{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+.welcome-left{
+    width: 65%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding : 0 45px;
+}
+.welcome-left form p{
+    margin: 8px 0 !important;
+}
+.expanded-form-width{
+    min-width: 100px;
+    max-width: 500px;
+    width: 100%;
+}
+.expanded-input-width{
+    width: 100%;
+}
+.welcome-right{
+    width: 35%;
+    height: 100%;
+    background-color: #17af87 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

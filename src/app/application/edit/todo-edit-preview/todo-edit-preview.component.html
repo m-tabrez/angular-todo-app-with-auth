@@ -1,0 +1,56 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="routerOutlet">
+  <div class="routerContent">
+        <mat-card>
+            <form (ngSubmit)="onSubmitHandler()" [formGroup]="toDoForm">
+                <mat-form-field class="full-width-form">
+                    <mat-label>Enter Todo Title</mat-label>
+                    <input 
+                        matInput 
+                        placeholder="" 
+                        formControlName="title"/>
+                    <mat-error *ngIf="!toDoForm.get('title').valid && toDoForm.get('title').touched">
+                      This Field Cant be Empty, Enter Title
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-card-content>
+                    <div formArrayName="todoArr" class="formArr">
+                        <mat-form-field *ngFor="let todo of getTodos(); let i = index">
+                            <input 
+                                matInput 
+                                placeholder="" 
+                                [formControlName]="i"/>
+                              <button *ngIf="!previewOnly" matSuffix mat-icon-button (click)="deleteItem(i)">
+                                <mat-icon>close</mat-icon>
+                              </button>
+                          </mat-form-field>
+                    </div>
+                  </mat-card-content>
+
+                <div *ngIf="!previewOnly">
+                  <button
+                    [disabled]="!toDoForm.valid"
+                    mat-mini-fab
+                    (click)="addTodo()"
+                    type="button"
+                    color="accent"
+                  >
+                    <mat-icon>add</mat-icon>
+                  </button>
+
+                  <br /><br />
+
+                  <button
+                    [disabled]="!toDoForm.valid"
+                    type="submit"
+                    mat-raised-button
+                    color="primary"
+                  >
+                    Update
+                  </button>
+                </div>
+            </form>
+        </mat-card>
+   </div>
+</div>

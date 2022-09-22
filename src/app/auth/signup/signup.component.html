@@ -1,0 +1,55 @@
+<div class="signup-wrapper">
+    <app-loading *ngIf="isLoading"></app-loading>
+  <h1>Great.., Let's start with your basic info</h1>
+  <form (ngSubmit)="onSubmitHandler()" class="expanded-form-width" [formGroup]="RctvSignupForm">
+    <mat-form-field class="expanded-input-width" appearance="outline">
+      <mat-label>Enter Full Name</mat-label>
+      <input 
+        matInput 
+        placeholder="Ex. Mary Joseph"
+        formControlName="fullName"
+        />
+    </mat-form-field>
+    <mat-form-field class="expanded-input-width" appearance="outline">
+      <mat-label>Enter Email Id</mat-label>
+      <input 
+        matInput 
+        placeholder="Ex. mary@gmail.com"
+        formControlName="email" 
+        />
+    </mat-form-field>
+    <mat-form-field class="expanded-input-width" appearance="outline">
+      <mat-label>Enter Password</mat-label>
+      <input 
+        type="password"
+        matInput 
+        placeholder="Ex. *******"
+        formControlName="password"
+        />
+    </mat-form-field>
+    <div class="radioButtons">
+    <mat-radio-group aria-label="Select an option" formControlName="gender">
+        <mat-radio-button color="primary" value="male">Male</mat-radio-button> &nbsp;
+        <mat-radio-button color="primary" value="female">Female</mat-radio-button>
+    </mat-radio-group>
+    </div>
+    <button 
+        type="submit"
+        class="expanded-input-width" 
+        mat-raised-button 
+        color="primary"
+        [disabled]="!RctvSignupForm.valid">
+        Submit
+    </button>
+    <br><br>
+    <button
+        type="button"
+        class="expanded-input-width"
+        color="primary"
+        routerLink="/welcome"
+        mat-raised-button>
+        Back to Login
+    </button>
+  </form>
+    
+</div>

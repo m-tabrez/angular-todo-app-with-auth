@@ -1,0 +1,49 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="routerOutlet">
+    <div class="routerContent">
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.value.title}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="created">
+            <th mat-header-cell *matHeaderCellDef> Created </th>
+            <td mat-cell *matCellDef="let element"> {{element.createdOn | date}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="onEditOrPreview(element, false)">
+                    <mat-icon>preview</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onEditOrPreview(element, true)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="onDelete(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                        showFirstLastButtons 
+                        aria-label="Select page of periodic elements">
+        </mat-paginator>
+    </div>
+</div>

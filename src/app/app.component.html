@@ -1,0 +1,17 @@
+<mat-toolbar *ngIf="isAuth" color="primary" class="xorTheme">
+    <mat-toolbar-row>
+      <h1 routerLink="home">UX Notes</h1>
+      <div>
+        <button mat-button routerLink="home/new-note">New Note</button>
+        <button mat-button routerLink="home/new-todo">Todo</button>
+        <button mat-button routerLink="home/survey">Start Survey</button>
+        <button mat-button>Settings</button>
+        <button mat-icon-button type="button" (click)="onLogout()">
+            <mat-icon>power_settings_new</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
